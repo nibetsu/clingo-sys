@@ -76,8 +76,6 @@ jobs:
              cd clingo 
              git checkout v5.6.2 
              cd ..
-      - name: Apply patch
-        run: patch -u clingo/libclingo/CMakeLists.txt -i bugfix.patch
       - name: Install bison
         run: sudo apt-get install bison
       - name: Install re2c
@@ -97,8 +95,6 @@ jobs:
              cd clingo 
              git checkout v5.6.2 
              cd ..
-      - name: Apply patch
-        run: patch -u clingo/libclingo/CMakeLists.txt -i bugfix.patch
       - name: Install build dependencies
         run: |
           brew update
@@ -123,8 +119,6 @@ jobs:
              cd clingo 
              git checkout v5.6.2 
              cd ..
-      - name: Apply patch
-        run: patch -u clingo/libclingo/CMakeLists.txt -i bugfix.patch
       - name: Install bison
         run: choco install winflexbison
       - name: Install re2c
