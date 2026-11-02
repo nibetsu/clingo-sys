@@ -1,7 +1,7 @@
 # clingo-sys [![Build Status](https://github.com/potassco/clingo-sys/workflows/CI%20Test/badge.svg)](https://github.com/potassco/clingo-sys)[![Latest Version](https://img.shields.io/crates/v/clingo-sys.svg)](https://crates.io/crates/clingo-sys)[![Rust Documentation](https://docs.rs/clingo-sys/badge.svg)](https://docs.rs/clingo-sys)
 
 Rust raw FFI bindings to the C API of [clingo](https://github.com/potassco/clingo) library.
-Clingo version 5.6.2.
+Clingo version 5.8.3.
 
 ## Requirements library
 
@@ -22,7 +22,7 @@ follows.
 
 ```toml
 [dependencies]
-clingo-sys = { version = "0.7.2", features = ["static-linking"] }
+clingo-sys = { version = "0.8.0", features = ["static-linking"] }
 ```
 
 To build clingo for static linking you need the following tools installed:
@@ -35,6 +35,6 @@ To build clingo for static linking you need the following tools installed:
   - other compilers might work
 - the [cmake](https://www.cmake.org/) build system
   - at least version 3.18 is recommended
-  - at least version 3.1 is *required*
+  - at least version 3.10 is *required*
 
 [Cargo feature]: https://doc.rust-lang.org/cargo/reference/manifest.html#the-features-section
