@@ -4,9 +4,12 @@ fn main() {
     // update clingo submodule
     // git submodule update --init --recursive
 
-    // // create bindings
+    // // create bindings (bindings.rs was generated with bindgen-cli 0.73.2 using the same options)
     // let bindings = bindgen::Builder::default()
     //     .header("clingo/libclingo/clingo.h")
+    //     .allowlist_function("clingo_.*")
+    //     .allowlist_type("clingo_.*")
+    //     .allowlist_var("(g_)?clingo_.*|CLINGO_.*")
     //     .no_copy("clingo_solve_control")
     //     .no_copy("clingo_model")
     //     .no_copy("clingo_solve_handle")
@@ -21,12 +24,6 @@ fn main() {
     //     .no_copy("clingo_backend")
     //     .no_copy("clingo_configuration")
     //     .no_copy("clingo_statistic")
-    //     // .no_copy("clingo_ast_term")
-    //     // .no_copy("clingo_ast_function")
-    //     // .no_copy("clingo_ast_pool")
-    //     // .no_copy("clingo_ast_csp_product_term_t")
-    //     .blocklist_type("max_align_t") // https://github.com/rust-lang/rust-bindgen/issues/550
-    //     .size_t_is_usize(true)
     //     .generate()
     //     .expect("Unable to generate bindings");
 
