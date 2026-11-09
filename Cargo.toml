@@ -19,9 +19,6 @@ static-linking = []
 name = "clingo_sys"
 path = "lib.rs"
 
-[dependencies]
-libc = "0.2"
-
 [build-dependencies]
 cmake = "0.1"
 # bindgen = "0.73"
