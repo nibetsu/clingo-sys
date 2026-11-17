@@ -55,6 +55,19 @@ fn main() {
             .define("CLASP_BUILD_APP", "OFF")
             .build();
 
+        // build the C wrappers around clasp's facade against the installed headers
+        // (before the clingo libraries are linked, which the wrappers depend on)
+        cc::Build::new()
+            .cpp(true)
+            .std("c++14")
+            .include(dst.join("include"))
+            .file("clasp_shim.cpp")
+            .compile("clingo_sys_clasp");
+
+        // let the build scripts of dependent crates compile against clingo's and clasp's headers
+        // via DEP_CLINGO_INCLUDE
+        println!("cargo:include={}", dst.join("include").display());
+
         println!(
             "cargo:rustc-link-search=native={}",
             dst.join("lib").display()

@@ -37,4 +37,30 @@ To build clingo for static linking you need the following tools installed:
   - at least version 3.18 is recommended
   - at least version 3.10 is *required*
 
+### Accessing clasp
+
+With `static-linking`, the crate also builds a few C wrappers around clasp's `ClaspFacade`
+(see `clasp_shim.cpp`), for example `clingo_sys_clasp_facade_num_vars()`.
+They take the pointer returned by `clingo_control_clasp_facade()`.
+
+To write further C++ code against clasp, depend on `clingo-sys` with `static-linking` directly.
+Its build script passes the directory with the installed clingo, clasp and potassco headers to
+the build scripts of dependent crates as `DEP_CLINGO_INCLUDE`:
+
+```rust
+// build.rs
+fn main() {
+    cc::Build::new()
+        .cpp(true)
+        .std("c++14")
+        .include(std::env::var("DEP_CLINGO_INCLUDE").unwrap())
+        .file("my_clasp.cpp")
+        .compile("my_clasp");
+}
+```
+
+Inside, the facade pointer can be cast to `Clasp::ClaspFacade*`.
+Note that clingo considers this access experimental and not part of its stable API,
+and that the code has to be compiled against the clasp version shipped with this crate.
+
 [Cargo feature]: https://doc.rust-lang.org/cargo/reference/manifest.html#the-features-section
