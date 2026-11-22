@@ -14,7 +14,7 @@ jobs:
       - name: Conda install clingo
         shell: bash -el {0}
         run: |
-          conda install -c potassco clingo=5.8.3
+          conda install -c potassco -c conda-forge clingo=5.8.3
           echo "CLINGO_LIBRARY_PATH=$CONDA_PREFIX/lib" >> $GITHUB_ENV
       - name: Build
         run: |
@@ -34,7 +34,7 @@ jobs:
       - name: Conda install clingo
         shell: bash -el {0}
         run: |
-          conda install -c potassco clingo=5.8.3
+          conda install -c potassco -c conda-forge clingo=5.8.3
           echo "CLINGO_LIBRARY_PATH=$CONDA_PREFIX/lib" >> $GITHUB_ENV
       - name: Build
         run: |
@@ -54,7 +54,7 @@ jobs:
       - name: Conda install clingo
         shell: bash -el {0}
         run: |
-          conda install -c potassco clingo=5.8.3
+          conda install -c potassco -c conda-forge clingo=5.8.3
           echo "CLINGO_LIBRARY_PATH=$CONDA_PREFIX\\Library\\lib" >> $GITHUB_ENV
           echo "$CONDA_PREFIX\\Library\\bin" >> $GITHUB_PATH
       - name: Build
