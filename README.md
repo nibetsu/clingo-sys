@@ -54,6 +54,8 @@ fn main() {
         .cpp(true)
         .std("c++14")
         .include(std::env::var("DEP_CLINGO_INCLUDE").unwrap())
+        // required for the static clingo library, see clingo.h
+        .define("CLINGO_NO_VISIBILITY", None)
         .file("my_clasp.cpp")
         .compile("my_clasp");
 }
