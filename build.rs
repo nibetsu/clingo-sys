@@ -56,11 +56,14 @@ fn main() {
             .build();
 
         // build the C wrappers around clasp's facade against the installed headers
-        // (before the clingo libraries are linked, which the wrappers depend on)
+        // (before the clingo libraries are linked, which the wrappers depend on);
+        // like cmake for static libclingo, define CLINGO_NO_VISIBILITY, otherwise
+        // clingo.h declares the clingo functions as dllimport on Windows
         cc::Build::new()
             .cpp(true)
             .std("c++14")
             .include(dst.join("include"))
+            .define("CLINGO_NO_VISIBILITY", None)
             .file("clasp_shim.cpp")
             .compile("clingo_sys_clasp");
 
