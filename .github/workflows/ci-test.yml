@@ -10,11 +10,13 @@ jobs:
       - uses: conda-incubator/setup-miniconda@v4
         with:
           auto-update-conda: true
-          miniconda-version: "latest"
+          miniforge-version: latest
+          channels: potassco,conda-forge
+          conda-remove-defaults: "true"
       - name: Conda install clingo
         shell: bash -el {0}
         run: |
-          conda install -c potassco -c conda-forge clingo=5.8.3
+          conda install clingo=5.8.3
           echo "CLINGO_LIBRARY_PATH=$CONDA_PREFIX/lib" >> $GITHUB_ENV
       - name: Build
         run: |
@@ -30,11 +32,13 @@ jobs:
       - uses: conda-incubator/setup-miniconda@v4
         with:
           auto-update-conda: true
-          miniconda-version: "latest"
+          miniforge-version: latest
+          channels: potassco,conda-forge
+          conda-remove-defaults: "true"
       - name: Conda install clingo
         shell: bash -el {0}
         run: |
-          conda install -c potassco -c conda-forge clingo=5.8.3
+          conda install clingo=5.8.3
           echo "CLINGO_LIBRARY_PATH=$CONDA_PREFIX/lib" >> $GITHUB_ENV
       - name: Build
         run: |
@@ -50,11 +54,13 @@ jobs:
       - uses: conda-incubator/setup-miniconda@v4
         with:
           auto-update-conda: true
-          miniconda-version: "latest"
+          miniforge-version: latest
+          channels: potassco,conda-forge
+          conda-remove-defaults: "true"
       - name: Conda install clingo
         shell: bash -el {0}
         run: |
-          conda install -c potassco -c conda-forge clingo=5.8.3
+          conda install clingo=5.8.3
           echo "CLINGO_LIBRARY_PATH=$CONDA_PREFIX\\Library\\lib" >> $GITHUB_ENV
           echo "$CONDA_PREFIX\\Library\\bin" >> $GITHUB_PATH
       - name: Build
